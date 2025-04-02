@@ -35,4 +35,4 @@ cd distributed-image-processing
 # Build project
 mvn clean install
 
-# Verify SQLite driver in target/dependencies```
+# Verify SQLite driver in target/dependencies
