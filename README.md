@@ -36,3 +36,20 @@ cd distributed-image-processing
 mvn clean install
 
 # Verify SQLite driver in target/dependencies
+```
+
+
+
+
+
+## Usage 🚀
+
+### 1. Start Master Node
+```bash
+java -cp target/FINAL_TRY-1.0-SNAPSHOT.jar org.example.MasterGUI
+```
+
+# In separate terminals
+```bash
+java -cp target/FINAL_TRY-1.0-SNAPSHOT.jar org.example.SlaveGUI
+```
