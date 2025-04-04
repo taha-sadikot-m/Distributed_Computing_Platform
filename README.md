@@ -1,55 +1,43 @@
-# Distributed Image Processing System 🖥️🖼️
+**Distributed Computing System Project** 🌐
+=============================================
 
-A distributed system for parallel image processing using Java Swing, Python, and SQLite. Master node distributes tasks to slave nodes, processes images using Python scripts, and tracks jobs in a database.
+### **Project Description** 📄
+This project enables users to process tasks across multiple slave nodes connected to a master node. The code supports multiple master and slave nodes, allowing for scalable and distributed computing. The master node shares status data with slave nodes, and users can upload script files and data to be processed. The files and data are communicated to slave nodes using a round-robin scheduling rule, processed, and then sent back to the master node for user download and utilization.
 
-![System Architecture](docs/architecture.png) <!-- Add architecture diagram if available -->
-
-## Features ✨
-
-- **Master-Slave Architecture**: Central master node coordinates multiple slave nodes
-- **GUI Dashboard**: Real-time monitoring of nodes and jobs
-- **Python Script Execution**: Run custom image processing scripts (e.g., grayscale conversion)
-- **Job Management**: 
-  - Automatic task distribution
-  - Progress tracking
-  - Historical job analytics
-- **Database Integration**: SQLite storage for job metadata and task statuses
-- **Fault Tolerance**: Automatic slave node detection and task reassignment
-
-
-
-## Prerequisites 📋
-
-- Java 17+
-- Python 3.8+
-- Maven 3.6+
-- SQLite JDBC Driver (auto-installed via Maven)
-
-## Installation ⚙️
-
-```bash
-# Clone repository
-git clone https://github.com/yourusername/distributed-image-processing.git
-cd distributed-image-processing
-
-# Build project
-mvn clean install
-
-# Verify SQLite driver in target/dependencies
+### **Code Directory Structure** 🗂️
+```markdown
+org.example
+├── Master
+│   ├── MasterGUI.java
+│   └── slaveNode.java
+├── Slave
+│   ├── FilePacket.java
+│   └── SlaveGUI.java
 ```
 
+### **Execution Process** 🚀
+1. **Run Master and Slave Nodes** 👉 Run multiple instances of `MasterGUI.java` and `SlaveGUI.java`.
+2. **Configure Master Node** 📊
+	* Enter the port number for the master node.
+	* Start the server.
+3. **Configure Slave Node** 📊
+	* Enter the port number and IP address of the master node to connect.
+4. **Upload Files and Data** 📁
+	* Use the appropriate button to upload the Python file and data.
+5. **Execute and Download** 💻
+	* The data will be executed across slave nodes using round-robin scheduling.
+	* Use the appropriate button to access the processed data.
 
+**Example Use Case** 📊
+------------------------
 
+1. Run two instances of `MasterGUI.java` and three instances of `SlaveGUI.java`.
+2. Configure the master nodes with port numbers 8080 and 8081.
+3. Configure the slave nodes to connect to the master nodes using their respective IP addresses and port numbers.
+4. Upload a Python script file and data to the master node.
+5. Execute the data across the slave nodes and download the processed results.
 
+**Note** 📝
+--------
 
-## Usage 🚀
-
-### 1. Start Master Node
-```bash
-java -cp target/FINAL_TRY-1.0-SNAPSHOT.jar org.example.MasterGUI
-```
-
-# In separate terminals
-```bash
-java -cp target/FINAL_TRY-1.0-SNAPSHOT.jar org.example.SlaveGUI
-```
+This project demonstrates a basic distributed computing system, and users can modify and extend the code to suit their specific requirements.
